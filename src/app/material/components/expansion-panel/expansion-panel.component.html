@@ -1,0 +1,27 @@
+
+<mat-accordion >
+    <mat-label style="margin-top: 70px;margin-left: 15px;">Sports </mat-label>
+    <mat-expansion-panel hideToggle style="margin-bottom: 20px;" >
+      <mat-expansion-panel-header >
+        <mat-panel-title>
+          Badminton
+        </mat-panel-title>
+        <mat-panel-description>
+        About Badminton
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Badminton is a racket sport played by either two opposing players (singles) or two opposing pairs (doubles), who take positions on opposite halves of a rectangular court that is divided by a net. Players score points by striking a shuttlecock with their racket so that it passes over the net and lands in their opponents' half of the court</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Cricket
+        </mat-panel-title>
+        <mat-panel-description>
+        About Cricket
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Cricket is a bat-and-ball game played between two teams of eleven players on a field at the centre of which is a 22-yard (20-metre) pitch with a wicket at each end, each comprising two bails balanced on three stumps. The batting side scores runs by striking the ball bowled at the wicket with the bat (and running between the wickets), while the bowling and fielding side tries to prevent this (by preventing the ball from leaving the field, and getting the ball to either wicket) and dismiss each batter (so they are "out").</p>
+    </mat-expansion-panel>
+  </mat-accordion>

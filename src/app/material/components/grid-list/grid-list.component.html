@@ -1,0 +1,12 @@
+<!-- <p>grid-list works!</p> -->
+<h2>Seven Wonders Of The World</h2>
+<mat-grid-list cols="3" rowHeight="350px">
+  
+    <mat-grid-tile *ngFor="let image of images;let i = index;">
+        <!-- <img src="../assets/dhoni.jpeg"> -->
+        <mat-grid-tile-header>
+            <span matLine>Image: {{ i }}</span>
+          </mat-grid-tile-header>
+          <img class="fit-cover cursor-pointer" src="{{image.src}}" alt="Gallery Image" />
+    </mat-grid-tile>
+</mat-grid-list>

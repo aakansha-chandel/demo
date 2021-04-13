@@ -1,0 +1,91 @@
+<mat-card>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper >
+        <mat-step [stepControl]="FormOne">
+          <form style="text-align:left;margin-top: 30px;margin-left: 20px;" [formGroup]="FormOne">
+            <ng-template matStepLabel>Enter Freezer Details</ng-template>
+            <label style="border-bottom: 1px solid black;margin-bottom: 10px;margin-top: 40px;padding-bottom: 10px; width:auto;">Freezer Information</label>
+            <br>
+            <mat-form-field style="margin-top:27px;" >
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="First name,Last name" formControlName="name" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-label>Type</mat-label>
+              <mat-select>
+                  <mat-option>Type</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Location</mat-label>
+                <input matInput placeholder="Delhi">
+            </mat-form-field>
+            <!-- <div style="margin-top: 20px;text-align: right;margin-right: -13px;"> -->
+              <div style="margin-top: 20px;">
+              <button mat-button matStepperNext>Create Freezer Structure</button>
+            </div>
+          </form>
+        </mat-step>
+        <!-- #docregion label -->
+        <mat-step [stepControl]="FormTwo" label="Create Freezer Structure">
+        <!-- <label >Freezer Section</label>  -->
+        <h4>Mat Chip Demo</h4>
+          <mat-chip-list
+          class="example-chip"
+          cdkDropList 
+          cdkDropListOrientation="horizontal"
+          (cdkDropListDropped)="drop($event)">
+          <div style="margin-left: 25px;margin-top:15px;">
+          <mat-chip 
+            class="example-box"
+            cdkDrag
+            *ngFor="let list of lists">
+            {{list.name}}
+          </mat-chip>
+          </div>   
+        </mat-chip-list>       
+        <br>
+        <h4>Mat Nested Tree Demo</h4>
+          <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+            <!-- This is the tree node template for leaf nodes -->
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+              <li class="mat-tree-node">
+               <!-- use a disabled button to provide padding for tree leaf -->
+                 <button mat-icon-button disabled></button>
+                {{node.name}}
+              </li>
+            </mat-tree-node> 
+            <!-- This is the tree node template for expandable nodes-->
+            <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+              <li>
+                <div class="mat-tree-node">
+                  <button mat-icon-button matTreeNodeToggle
+                          [attr.aria-label]="'Toggle ' + node.name">
+                    <mat-icon class="mat-icon-rtl-mirror">
+                      {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                  </button>
+                 {{node.name}}
+                </div>
+                <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+                  <ng-container matTreeNodeOutlet></ng-container>
+                </ul>
+              </li>
+            </mat-nested-tree-node>
+          </mat-tree>
+          <div style="margin-top: 20px;">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p style="text-align:left;margin-top:47px;margin-left: 12px;">You are now done.</p>
+          <div style="text-align:left">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step> 
+    </mat-horizontal-stepper>
+  </mat-card>

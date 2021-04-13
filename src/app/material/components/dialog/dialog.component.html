@@ -1,0 +1,21 @@
+<mat-card>
+    <section style="margin-bottom: 20px;">
+      <h2>Welcome message</h2>
+      <p>Activate the button to see a welcome dialog with a simple message and a close button.</p>
+      <button mat-button (click)="openDialog()">Welcome</button>
+    </section>
+    <section style="margin-bottom: 20px;">
+        <h2>Choose a Car</h2>
+        <p>Active the button to choose BMW or Audi in a dialog.</p>
+        <button mat-button (click)="openFruitDialog()">Car</button>
+        <p *ngIf="fruitSelectedOption">
+          You chose: {{fruitSelectedOption}}
+        </p>
+      </section>
+      <section>
+          <h2>Taj Mahal</h2>
+          <p>Active the below button to know more</p>
+          <button mat-button (click)="openTajDialog()">Click</button>
+      </section>
+<mat-card>    
+

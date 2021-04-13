@@ -1,0 +1,26 @@
+<mat-card style="margin-bottom: 20px;">
+  <h3>Snackbar with custom component</h3>
+  <mat-form-field>
+    <mat-label>Snack bar duration (seconds)</mat-label>
+    <input type="number" [(ngModel)]="durationInSeconds" matInput>
+  </mat-form-field>
+  <button mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+    Snackbar Demo 
+  </button>
+</mat-card>
+<mat-card>
+  <h3>Basic Snackbar</h3>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <input matInput value="Message" #message>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Action</mat-label>
+      <input matInput value="Action" #action>
+    </mat-form-field>
+    <button mat-stroked-button (click)="openSnackBar1(message.value, action.value)">Show snack-bar</button>
+  </div>
+</mat-card>
+
+

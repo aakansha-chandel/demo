@@ -1,0 +1,45 @@
+<mat-card style="margin-right: 30px;" >
+    <mat-label>Menu with icons</mat-label>
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item>
+       <mat-icon>keyboard_voice</mat-icon>
+       <span>Keyboard Voice</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+</mat-card>
+<mat-card style="margin-top: 15px;margin-right: 30px;">
+    <mat-label>Nested Menu</mat-label>
+    <button mat-button [matMenuTriggerFor]="food">Food</button>
+    <mat-menu #food="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="Punjabi">Punjabi</button>
+        <button mat-menu-item [matMenuTriggerFor]="Gujarati">Gujarati</button>
+    </mat-menu>
+    <mat-menu #Punjabi="matMenu">
+        <button mat-menu-item >Paneer</button>
+        <button mat-menu-item>Chole</button>
+    </mat-menu>
+    <mat-menu #Gujarati="matMenu">
+        <button mat-menu-item>Dhokla</button>
+        <button mat-menu-item>Khakra</button>
+    </mat-menu>
+</mat-card>
+<br>
+<br>
+<lib-aakansha-lib></lib-aakansha-lib> 
+<span *ngFor="let initial of initials">{{initial.text}}</span>
+

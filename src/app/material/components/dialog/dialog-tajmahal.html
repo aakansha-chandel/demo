@@ -1,0 +1,19 @@
+<h2>Taj Mahal</h2>
+<mat-dialog-content>
+    <img style="max-width: 100%;height: auto;"src="../assets/tajmahal.jpeg" alt="Tajmahal" width="1000" height="300"> 
+    <p>
+        The Taj Mahal is an ivory-white marble mausoleum on the southern bank of the river Yamuna in the Indian city of Agra. 
+    </p>
+    <p>
+        It was commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+  
+    <a mat-button color="primary" href="https://en.wikipedia.org/wiki/Taj_Mahal" target="_blank">
+      Read more on Wikipedia
+    </a>
+    <button mat-button color="secondary" (click)="showInStackedDialog()">
+      Show in dialog</button>
+  </mat-dialog-actions>
