@@ -13,7 +13,7 @@ export class LayoutComponent implements OnInit {
    
    }
   ngOnInit() {
-    console.log('layout page for demo');
+    console.log('layout page-branch demo project');
     this.users = this.route.snapshot.data.users;
   
   }

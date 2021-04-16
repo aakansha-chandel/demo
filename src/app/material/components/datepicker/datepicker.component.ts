@@ -1,4 +1,6 @@
+import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { AreaChartComponent } from '../area-chart/area-chart.component';
 
 @Component({
   selector: 'app-datepicker',

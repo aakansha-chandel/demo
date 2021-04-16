@@ -1,3 +1,4 @@
+import { AreaChartComponent } from './material/components/area-chart/area-chart.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path:'gridlist',
     component:GridListComponent
+  },
+  {
+    path:'chart',
+    component:AreaChartComponent
   }
 ],
 },

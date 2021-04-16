@@ -38,7 +38,8 @@ import { ExpansionPanelComponent } from './components/expansion-panel/expansion-
 import { MatExpansionModule} from '@angular/material/expansion';
 import { GridListComponent } from './components/grid-list/grid-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {AakanshaLibModule} from 'aakansha-lib'
+import {AakanshaLibModule} from 'aakansha-lib';
+import { AreaChartComponent } from './components/area-chart/area-chart.component'
 
 const mat = [
     MatButtonModule,
@@ -87,7 +88,7 @@ const mat = [
             DialogWelcomeComponent,
             DialogFruitComponent,
             DialogTajmahalComponent,
-            StepperComponent,SignupFormComponent, SnackbarComponent, SnackbarContentComponent, TabsComponent, MenuComponent, ExpansionPanelComponent, GridListComponent]
+            StepperComponent,SignupFormComponent, SnackbarComponent, SnackbarContentComponent, TabsComponent, MenuComponent, ExpansionPanelComponent, GridListComponent, AreaChartComponent]
     })
     export class MaterialModule{
 
