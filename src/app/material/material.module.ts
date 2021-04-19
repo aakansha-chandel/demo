@@ -18,9 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogComponent, DialogWelcomeComponent, DialogFruitComponent, DialogTajmahalComponent } from './components/dialog/dialog.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
-import { StepperComponent } from './components/stepper/stepper.component';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
@@ -28,18 +26,18 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
 import {SharedModule} from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
-import { SnackbarContentComponent } from './components/snackbar-content/snackbar-content.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { TabsComponent } from './components/tabs/tabs.component';
-import { MenuComponent } from './components/menu/menu.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';    
 import { MatExpansionModule} from '@angular/material/expansion';
 import { GridListComponent } from './components/grid-list/grid-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {AakanshaLibModule} from 'aakansha-lib';
 import { AreaChartComponent } from './components/area-chart/area-chart.component'
+// tslint:disable-next-line: max-line-length
+import { DialogComponent, DialogFruitComponent, DialogTajmahalComponent, DialogWelcomeComponent } from './components/dialog/dialog.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 const mat = [
     MatButtonModule,
@@ -68,8 +66,9 @@ const mat = [
     AakanshaLibModule,
     MatExpansionModule
   ];
+    // tslint:disable-next-line: align
     @NgModule({
-        imports:[
+        imports: [
             mat,
             FormsModule,
             ReactiveFormsModule,
@@ -79,17 +78,23 @@ const mat = [
             FlexLayoutModule,
             SharedModule
         ],
-        exports:[
+        exports: [
             mat
         ],
         declarations: [
-            DialogComponent, 
-            DatepickerComponent, 
+            DialogComponent,
+            DatepickerComponent,
             DialogWelcomeComponent,
             DialogFruitComponent,
             DialogTajmahalComponent,
-            StepperComponent,SignupFormComponent, SnackbarComponent, SnackbarContentComponent, TabsComponent, MenuComponent, ExpansionPanelComponent, GridListComponent, AreaChartComponent]
+            SignupFormComponent,
+            TabsComponent,
+            GridListComponent,
+            AreaChartComponent,
+            LineChartComponent,
+            PieChartComponent
+        ]
     })
-    export class MaterialModule{
+    export class MaterialModule {
 
 }

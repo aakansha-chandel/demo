@@ -1,43 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-
+import {CommonData} from '../d3-data';
 @Component({
   selector: 'app-area-chart',
   templateUrl: './area-chart.component.html',
   styleUrls: ['./area-chart.component.css']
 })
 export class AreaChartComponent implements OnInit {
-  private data = [
-    {Framework: 'Vue', Stars: '166443', Released: '2014'},
-    {Framework: 'React', Stars: '150793', Released: '2013'},
-    {Framework: 'Angular', Stars: '62342', Released: '2016'},
-    {Framework: 'Backbone', Stars: '27647', Released: '2010'},
-    {Framework: 'Ember', Stars: '21471', Released: '2011'},
-  ];
+
   private svg;
   private margin = 50;
   private width = 750 - (this.margin * 2);
   private height = 400 - (this.margin * 2);
+  private widthPie = 750;
+  private heightPie = 600;
+  // for pie chart
+  private radius = Math.min(this.widthPie, this.heightPie) / 2 - this.margin;
+  private colors;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.svg = d3.select('figure#bar')
+    this.svg = d3.select('div#bar')
     .transition()
     .duration(2000)
     .style('color', 'green');
-    this.createSvg();
-    this.drawBars(this.data);
+    this.createSvgBar();
+    this.drawBars(CommonData);
+    this.svg = d3.select('div#pie')
+    .transition()
+    .duration(1500)
+    .style('background-color', 'yellow');
+    this.createSvgPie();
+    this.createColors();
+    this.drawChart();
+    // Data from CSV file
+    // d3.csv("/assets/d3Data.csv").then(data => this.drawBars(data));
+    // Data from JSON API
+    // d3.json('https://api.jsonbin.io/b/5eee6a5397cb753b4d149343').then(value => this.drawBars(value));
   }
-  private createSvg(): void {
-    this.svg = d3.select('figure#bar')
+  // For Bar-chart
+  private createSvgBar(): void {
+    this.svg = d3.select('div#bar')
     .append('svg')
     .attr('width', this.width + (this.margin * 2))
     .attr('height', this.height + (this.margin * 2))
     .append('g')
     .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
 }
-
 private drawBars(data: any[]): void {
   // Create the X-axis band scale
   const x = d3.scaleBand()
@@ -64,7 +74,7 @@ private drawBars(data: any[]): void {
 
   // Create and fill the bars
   this.svg.selectAll('bars')
-  .data(data)
+  .data(CommonData)
   .enter()
   .append('rect')
   .attr('x', d => x(d.Framework))
@@ -80,7 +90,57 @@ private drawBars(data: any[]): void {
   .attr('height', (d) => this.height - y(d.Stars))
   .attr('fill', 'green');
   // .style("background-color", "red");
+}
 
+// Pie Chart
+private createSvgPie(): void {
+  this.svg = d3.select('div#pie')
+  .append('svg')
+  .attr('width', this.widthPie)
+  .attr('height', this.heightPie)
+  .append('g')
+  .attr(
+    'transform',
+    'translate(' + this.widthPie / 2 + ',' + this.heightPie / 2 + ')'
+  );
+}
+private createColors(): void {
+  this.colors = d3.scaleOrdinal()
+  .domain(CommonData.map(d => d.Stars.toString()))
+  .range(['#3358FF', '#338AFF', '#33A8FF', '#33BEFF', '#33E6FF']);
+}
+private drawChart(): void {
+  // Compute the position of each group on the pie:
+  const pie = d3.pie<any>().value((d: any) => Number(d.Stars));
+
+  // Build the pie chart
+  this.svg
+  .selectAll('pieces')
+  .data(pie(CommonData))
+  .enter()
+  .append('path')
+  .attr('d', d3.arc()
+    .innerRadius(0)
+    .outerRadius(this.radius)
+  )
+  .attr('fill', (d, i) => (this.colors(i)))
+  .attr('stroke', '#121926')
+  .style('stroke-width', '1px');
+
+  // Add labels
+  const labelLocation = d3.arc()
+  .innerRadius(100)
+  .outerRadius(this.radius);
+
+  this.svg
+  .selectAll('pieces')
+  .data(pie(CommonData))
+  .enter()
+  .append('text')
+  .text(d => d.data.Framework)
+  .attr('transform', d => 'translate(' + labelLocation.centroid(d) + ')')
+  .style('text-anchor', 'middle')
+  .style('font-size', 15);
 }
 
 }
