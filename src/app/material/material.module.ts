@@ -38,6 +38,7 @@ import { AreaChartComponent } from './components/area-chart/area-chart.component
 import { DialogComponent, DialogFruitComponent, DialogTajmahalComponent, DialogWelcomeComponent } from './components/dialog/dialog.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { D3MapComponent } from './components/d3-map/d3-map.component';
 
 const mat = [
     MatButtonModule,
@@ -92,7 +93,8 @@ const mat = [
             GridListComponent,
             AreaChartComponent,
             LineChartComponent,
-            PieChartComponent
+            PieChartComponent,
+            D3MapComponent
         ]
     })
     export class MaterialModule {

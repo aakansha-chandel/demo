@@ -12,12 +12,10 @@ import { GridListComponent } from './material/components/grid-list/grid-list.com
 import { ResolverService } from './resolver.service';
 import {AakanshaLibService} from 'aakansha-lib'
 import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { LineChartComponent } from './material/components/line-chart/line-chart.component';
 import { PieChartComponent } from './material/components/pie-chart/pie-chart.component';
-
-
+import { D3MapComponent } from './material/components/d3-map/d3-map.component';
 
 const routes: Routes = [
   {
@@ -32,8 +30,8 @@ const routes: Routes = [
     component: DatepickerComponent
   },
   {
-     path: 'dialog',
-    component: DialogComponent
+     path: 'd3-maps',
+    component: D3MapComponent
   },
   {
      path: 'tabs',
