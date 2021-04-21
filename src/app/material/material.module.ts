@@ -39,6 +39,7 @@ import { DialogComponent, DialogFruitComponent, DialogTajmahalComponent, DialogW
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { D3MapComponent } from './components/d3-map/d3-map.component';
+import { GJMapComponent } from './components/gj-map/gj-map.component';
 
 const mat = [
     MatButtonModule,
@@ -94,7 +95,8 @@ const mat = [
             AreaChartComponent,
             LineChartComponent,
             PieChartComponent,
-            D3MapComponent
+            D3MapComponent,
+            GJMapComponent
         ]
     })
     export class MaterialModule {

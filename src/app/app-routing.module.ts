@@ -1,3 +1,4 @@
+import { GJMapComponent } from './material/components/gj-map/gj-map.component';
 import { AreaChartComponent } from './material/components/area-chart/area-chart.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -30,8 +31,8 @@ const routes: Routes = [
     component: DatepickerComponent
   },
   {
-     path: 'd3-maps',
-    component: D3MapComponent
+     path: 'gj-map',
+    component: GJMapComponent
   },
   {
      path: 'tabs',

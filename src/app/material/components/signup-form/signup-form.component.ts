@@ -17,7 +17,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
-    this.r.navigate(['/layout/datepicker']);
+    this.r.navigate(['/layout/gridlist']);
     console.log(form.value);
   }
 

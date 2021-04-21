@@ -32,7 +32,7 @@ export class LineChartComponent implements OnInit {
   private svg: any;
   private line: d3Shape.Line<[number, number]>; // this is line defination
 
-  constructor () {
+  constructor() {
     // configure margins and width/height of the graph
     this.width = 960 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
